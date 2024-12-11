@@ -3,9 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Exercice</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Météo en temps réel</title>
   </head>
   <body>
+    <h1>Météo en temps réel</h1>
+    <input type="text" id="cityInput" placeholder="Entrez le nom d'une ville" />
+    <button onclick="getWeather()">Obtenir la météo</button>
+    <div id="weather">Les informations météorologiques s'afficheront ici.</div>
     <script src="script.js"></script>
   </body>
 </html>
