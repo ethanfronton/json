@@ -4,13 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
-    <title>Météo en temps réel</title>
+    <title>Météo</title>
   </head>
   <body>
-    <h1>Météo en temps réel</h1>
+    <div class="wrapper">
+      <video autoplay playsinline muted loop preload poster="http://i.imgur.com/xHO6DbC.png">
+        <source src="https://storage.coverr.co/videos/7RzPQrmB00s01rknm8VJnXahEyCy4024IMG?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjI5MTg2NjA0fQ.M8oElp5VNO8bWEWmdF2nGiu3qDOOYRFfP8wkKvl8I20" />
+      </video>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 80" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <mask id="mask" x="0" y="0" width="100%" height="100%">
+            <rect x="0" y="0" width="100%" height="100%" />
+            <text x="50%" y="50%" dy=".35em" text-anchor="middle">Météo</text>
+          </mask>
+        </defs>
+        <rect x="0" y="0" width="100%" height="100%" />
+      </svg>
+    </div>
     <input type="text" id="cityInput" placeholder="Entrez le nom d'une ville" />
-    <button onclick="getWeather()">Obtenir la météo</button>
-    <div id="weather">Les informations météorologiques s'afficheront ici.</div>
+    <button onclick="getWeather()">Rechercher</button>
     <script src="script.js"></script>
   </body>
 </html>

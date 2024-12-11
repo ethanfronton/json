@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleresult.css">
+    <title>Résultat Météo</title>
+  </head>
+  <body>
+    <div id="weather"></div>
+    <script>
+      const weatherData = JSON.parse(localStorage.getItem("weatherData"));
+
+      if (weatherData) {
+        document.getElementById("weather").innerHTML = `
+          <h2>${weatherData.city}, ${weatherData.country}</h2>
+          <p>Température : ${weatherData.temp}°C</p>
+          <p>Ressenti : ${weatherData.feelsLike}°C</p>
+          <p>Météo : ${weatherData.description}</p>
+          <p>Humidité : ${weatherData.humidity}%</p>
+        `;
+      } else {
+        document.getElementById("weather").innerHTML = `
+          <p style="color: red;">Aucune donnée météo disponible.</p>
+        `;
+      }
+    </script>
+  </body>
+</html>

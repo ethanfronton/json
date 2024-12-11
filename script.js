@@ -1,4 +1,5 @@
 const apiKey = "acc8bdfea0afd73f2844a9d275adc256";
+
 function getWeather() {
   const city = document.getElementById("cityInput").value;
   if (!city) {
@@ -16,18 +17,18 @@ function getWeather() {
       return response.json();
     })
     .then((data) => {
-      const weatherDiv = document.getElementById("weather");
-      weatherDiv.innerHTML = `
-                        <h2>${data.name}, ${data.sys.country}</h2>
-                        <p>Température : ${data.main.temp}°C</p>
-                        <p>Ressenti : ${data.main.feels_like}°C</p>
-                        <p>Météo : ${data.weather[0].description}</p>
-                        <p>Humidité : ${data.main.humidity}%</p>
-                    `;
+      const weatherInfo = {
+        city: data.name,
+        country: data.sys.country,
+        temp: data.main.temp,
+        feelsLike: data.main.feels_like,
+        description: data.weather[0].description,
+        humidity: data.main.humidity,
+      };
+      localStorage.setItem("weatherData", JSON.stringify(weatherInfo));
+      window.location.href = "result.html";
     })
     .catch((error) => {
-      document.getElementById("weather").innerHTML = `
-                        <p style="color: red;">Erreur : ${error.message}</p>
-                    `;
+      alert(`Erreur : ${error.message}`);
     });
 }
